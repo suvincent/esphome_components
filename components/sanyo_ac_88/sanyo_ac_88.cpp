@@ -1,4 +1,4 @@
-#include "sanyo_ac.h"
+#include "sanyo_ac_88.h"
 #include "esphome/core/log.h"
 
 const uint16_t kIrLed = 4; // GPIO 4 = D2
