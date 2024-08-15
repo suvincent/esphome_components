@@ -43,7 +43,7 @@ climate::ClimateTraits SanyoAC::traits() {
 
 void SanyoAC::control(const climate::ClimateCall &call) {
   if (call.get_mode().has_value()) {
-    ClimateMode mode = *call.get_mode();
+    esphome::climate::ClimateMode mode = *call.get_mode();
     switch (mode) {
       case climate::CLIMATE_MODE_OFF:
         this->ac.off();
@@ -77,7 +77,7 @@ void SanyoAC::control(const climate::ClimateCall &call) {
   }
 
   if (call.get_fan_mode().has_value()) {
-    ClimateFanMode fan_mode = *call.get_fan_mode();
+    esphome::climate::ClimateFanMode fan_mode = *call.get_fan_mode();
     switch (fan_mode) {
       case climate::CLIMATE_FAN_AUTO:
         this->ac.setFan(kSanyoAcFanAuto);
