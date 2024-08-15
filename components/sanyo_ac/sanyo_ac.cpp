@@ -15,11 +15,15 @@ void SanyoAC::setup() {
   ac.setMode(kSanyoAcAuto);
   ac.setTemp(25);  // Set a default temperature
   ac.setFan(kSanyoAcFanAuto);
+  this->mode = mode;
+  this->fan_mode = CLIMATE_FAN_AUTO;
+  this->target_temperature = 25;
+  this->publish_state();
 }
 
 climate::ClimateTraits SanyoAC::traits() {
   auto traits = climate::ClimateTraits();
-  traits.set_supports_current_temperature(true);
+  traits.set_supports_current_temperature(false);
   traits.set_supports_two_point_target_temperature(false);
   traits.set_visual_min_temperature(16);
   traits.set_visual_max_temperature(30);
