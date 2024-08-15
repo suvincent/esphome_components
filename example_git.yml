@@ -1,18 +1,19 @@
 esphome:
-  name: www
+  name: test
+  friendly_name: test
   libraries:
     - "crankyoldgit/IRremoteESP8266"
-esp8266:
+  platform: esp8266
   board: nodemcu
-
+  
 external_components:
-  - source:
-      type: local
-      path: ./components/sanyo_ac
-    
+   source:
+    type: git
+    url: https://github.com/suvincent/esphome_components
+    ref: 5f8768842995355f006422cbb1a4ac15d6a436b8 # This is the commit hash
+
 # Enable logging
 logger:
-
 # Enable Home Assistant API
 api:
   password: ""
@@ -30,7 +31,15 @@ wifi:
     ssid: !secret ap_ssid
     password: !secret ap_password
 
+
 captive_portal:
+
+remote_receiver:
+  - id: ir_receiver
+    pin: 
+      number: D5
+      inverted: true
+    dump: all
 
 remote_transmitter:
   pin: D2
