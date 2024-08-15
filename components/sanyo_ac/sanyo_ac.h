@@ -7,16 +7,22 @@
 #include <IRsend.h>
 #include <ir_Sanyo.h>
 
+const uint16_t kIrLed = 4; // GPIO 4 = D2
+IRHitachiAc1 ac(kIrLed);
+
 namespace esphome {
 namespace sanyo_ac {
 
 class SanyoAC : public climate::Climate, public Component {
  public:
+  SanyoAC(){
+    this->ac = ac;  // Pin 2 is the default
+  }
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;
  protected:
-  IRSanyoAc ac;  // The pin will be set in setup()
+  IRSanyoAc ac;  // The pin will be set afterward
   void transmit_state_();
 };
 
