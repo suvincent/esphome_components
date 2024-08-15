@@ -4,9 +4,9 @@ from esphome import automation
 
 AUTO_LOAD = ["climate"]
 
-CONF_SANYO_AC_ID = "sanyo_ac_id"
+CONF_SANYO_AC_ID = "sanyo_ac_88_id"
 
-SanyoAc = climate.climate_ns.class_("SanyoAC", climate.Climate, automation.Trigger.template())
+SanyoAc = climate.climate_ns.class_("SanyoAC88", climate.Climate, automation.Trigger.template())
 
 def validate_sanyo_ac(config):
     if CONF_SANYO_AC_ID in config:

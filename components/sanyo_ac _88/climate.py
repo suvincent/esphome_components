@@ -3,8 +3,8 @@ import esphome.config_validation as cv
 from esphome.components import climate
 from esphome.const import CONF_ID
 
-sanyo_ac_ns = cg.esphome_ns.namespace('sanyo_ac')
-SanyoAC = sanyo_ac_ns.class_('SanyoAC', climate.Climate, cg.Component)
+sanyo_ac_ns = cg.esphome_ns.namespace('sanyo_ac_88')
+SanyoAC = sanyo_ac_ns.class_('SanyoAC88', climate.Climate, cg.Component)
 
 CONFIG_SCHEMA = climate.CLIMATE_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(SanyoAC),
