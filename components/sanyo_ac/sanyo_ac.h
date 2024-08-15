@@ -18,7 +18,6 @@ class SanyoAC : public climate::Climate, public Component {
   climate::ClimateTraits traits() override;
  protected:
   void transmit_state_();
-  IRSanyoAc ac(4, false, false);
 };
 
 }  // namespace sanyo_ac
