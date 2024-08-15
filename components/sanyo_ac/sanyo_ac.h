@@ -15,6 +15,9 @@ namespace sanyo_ac {
 
 class SanyoAC : public climate::Climate, public Component {
  public:
+  SanyoAC(){
+    this->ac = ac;
+  }
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;
