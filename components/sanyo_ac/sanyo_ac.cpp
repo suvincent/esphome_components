@@ -7,12 +7,7 @@ namespace sanyo_ac {
 static const char *TAG = "sanyo.climate";
 
 void SanyoAC::setup() {
-  if (this->transmitter_id_.has_value()) {
-    auto *transmitter = this->get_component(*this->transmitter_id_);
-    assert(transmitter != nullptr);
-    this->ac_.setIRSend(transmitter);
-  }
-  
+  this->ac = IRSanyoAc(2);
   this->ac_.begin();
   this->ac_.on();
   this->ac_.setMode(kSanyoAcAuto);

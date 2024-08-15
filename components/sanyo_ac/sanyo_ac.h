@@ -15,13 +15,8 @@ class SanyoAC : public climate::Climate, public Component {
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;
-
-  void set_transmitter_id(uint32_t transmitter_id) { this->transmitter_id_ = transmitter_id; }
-
  protected:
-  IRSanyoAc ac_{0};  // The pin will be set in setup()
-  optional<uint32_t> transmitter_id_{};
-
+  IRSanyoAc ac;  // The pin will be set in setup()
   void transmit_state_();
 };
 
