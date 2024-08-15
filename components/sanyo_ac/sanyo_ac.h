@@ -16,8 +16,6 @@ class SanyoAC : public climate::Climate, public Component {
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;
- protected:
-  void transmit_state_();
 };
 
 }  // namespace sanyo_ac

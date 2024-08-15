@@ -102,12 +102,8 @@ void SanyoAC::control(const climate::ClimateCall &call) {
     this->fan_mode = fan_mode;
   }
 
-  this->transmit_state_();
-  this->publish_state();
-}
-
-void SanyoAC::transmit_state_() {
   ac.send(1);
+  this->publish_state();
 }
 
 }  // namespace sanyo_ac
