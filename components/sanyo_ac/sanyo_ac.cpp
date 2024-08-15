@@ -16,7 +16,6 @@ void SanyoAC::setup() {
   ac.setTemp(25);  // Set a default temperature
   ac.setFan(kSanyoAcFanAuto);
   this->mode = mode;
-  this->fan_mode = CLIMATE_FAN_AUTO;
   this->target_temperature = 25;
   this->publish_state();
 }
