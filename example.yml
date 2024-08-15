@@ -1,0 +1,42 @@
+esphome:
+  name: www
+  libraries:
+    - "crankyoldgit/IRremoteESP8266"
+esp8266:
+  board: nodemcu
+
+external_components:
+  - source:
+      type: local
+      path: ./components/sanyo_ac
+    
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  - platform: esphome
+    password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_password
+
+captive_portal:
+
+remote_transmitter:
+  pin: D2
+  carrier_duty_percent: 50%
+
+climate:
+  - platform: sanyo_ac  # This should match your custom component's platform name
+    name: "My Sanyo AC"
+    id: my_sanyo_ac
