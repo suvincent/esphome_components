@@ -107,7 +107,7 @@ void SanyoAC::control(const climate::ClimateCall &call) {
 }
 
 void SanyoAC::transmit_state_() {
-  ac.send();
+  ac.send(1);
 }
 
 }  // namespace sanyo_ac
