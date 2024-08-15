@@ -10,7 +10,7 @@
 
 
 namespace esphome {
-namespace sanyo_ac {
+namespace sanyo_ac_88 {
 class SanyoAC88 : public climate::Climate, public Component {
  public:
   void setup() override;
@@ -18,5 +18,5 @@ class SanyoAC88 : public climate::Climate, public Component {
   climate::ClimateTraits traits() override;
 };
 
-}  // namespace sanyo_ac
+}  // namespace sanyo_ac_88
 }  // namespace esphome

@@ -5,7 +5,7 @@ const uint16_t kIrLed = 4; // GPIO 4 = D2
 IRSanyoAc88 ac(kIrLed, false, false);
 
 namespace esphome {
-namespace sanyo_ac {
+namespace sanyo_ac_88 {
 
 static const char *TAG = "sanyo.climate";
 
