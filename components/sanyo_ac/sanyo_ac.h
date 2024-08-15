@@ -8,16 +8,13 @@
 #include <ir_Sanyo.h>
 
 const uint16_t kIrLed = 4; // GPIO 4 = D2
-IRHitachiAc1 ac(kIrLed);
+IRSanyoAc ac(kIrLed, false, false);
 
 namespace esphome {
 namespace sanyo_ac {
 
 class SanyoAC : public climate::Climate, public Component {
  public:
-  SanyoAC(){
-    this->ac = ac;  // Pin 2 is the default
-  }
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;

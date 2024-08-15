@@ -7,6 +7,7 @@ namespace sanyo_ac {
 static const char *TAG = "sanyo.climate";
 
 void SanyoAC::setup() {
+  this->ac = ac;
   this->ac.begin();
   this->ac.on();
   this->ac.setMode(kSanyoAcAuto);
