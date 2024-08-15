@@ -11,8 +11,6 @@
 
 namespace esphome {
 namespace sanyo_ac {
-const uint16_t kIrLed = 4; // GPIO 4 = D2
-IRSanyoAc ac(kIrLed, false, false);
 class SanyoAC : public climate::Climate, public Component {
  public:
   void setup() override;
@@ -20,6 +18,7 @@ class SanyoAC : public climate::Climate, public Component {
   climate::ClimateTraits traits() override;
  protected:
   void transmit_state_();
+  IRSanyoAc ac(4, false, false);
 };
 
 }  // namespace sanyo_ac
