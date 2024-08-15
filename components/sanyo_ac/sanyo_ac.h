@@ -7,12 +7,12 @@
 #include <IRsend.h>
 #include <ir_Sanyo.h>
 
-const uint16_t kIrLed = 4; // GPIO 4 = D2
-IRSanyoAc ac(kIrLed, false, false);
+
 
 namespace esphome {
 namespace sanyo_ac {
-
+const uint16_t kIrLed = 4; // GPIO 4 = D2
+IRSanyoAc ac(kIrLed, false, false);
 class SanyoAC : public climate::Climate, public Component {
  public:
   void setup() override;
