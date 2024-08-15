@@ -15,14 +15,10 @@ namespace sanyo_ac {
 
 class SanyoAC : public climate::Climate, public Component {
  public:
-  SanyoAC(){
-    this->ac = ac;
-  }
   void setup() override;
   void control(const climate::ClimateCall &call) override;
   climate::ClimateTraits traits() override;
  protected:
-  IRSanyoAc ac;  // The pin will be set afterward
   void transmit_state_();
 };
 

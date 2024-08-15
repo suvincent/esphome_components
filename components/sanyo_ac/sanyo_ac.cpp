@@ -7,12 +7,11 @@ namespace sanyo_ac {
 static const char *TAG = "sanyo.climate";
 
 void SanyoAC::setup() {
-  this->ac = ac;
-  this->ac.begin();
-  this->ac.on();
-  this->ac.setMode(kSanyoAcAuto);
-  this->ac.setTemp(25);  // Set a default temperature
-  this->ac.setFan(kSanyoAcFanAuto);
+  ac.begin();
+  ac.on();
+  ac.setMode(kSanyoAcAuto);
+  ac.setTemp(25);  // Set a default temperature
+  ac.setFan(kSanyoAcFanAuto);
 }
 
 climate::ClimateTraits SanyoAC::traits() {
@@ -46,23 +45,23 @@ void SanyoAC::control(const climate::ClimateCall &call) {
     esphome::climate::ClimateMode mode = *call.get_mode();
     switch (mode) {
       case climate::CLIMATE_MODE_OFF:
-        this->ac.off();
+        ac.off();
         break;
       case climate::CLIMATE_MODE_HEAT_COOL:
-        this->ac.on();
-        this->ac.setMode(kSanyoAcAuto);
+        ac.on();
+        ac.setMode(kSanyoAcAuto);
         break;
       case climate::CLIMATE_MODE_COOL:
-        this->ac.on();
-        this->ac.setMode(kSanyoAcCool);
+        ac.on();
+        ac.setMode(kSanyoAcCool);
         break;
       case climate::CLIMATE_MODE_HEAT:
-        this->ac.on();
-        this->ac.setMode(kSanyoAcHeat);
+        ac.on();
+        ac.setMode(kSanyoAcHeat);
         break;
       case climate::CLIMATE_MODE_DRY:
-        this->ac.on();
-        this->ac.setMode(kSanyoAcDry);
+        ac.on();
+        ac.setMode(kSanyoAcDry);
         break;
       default:
         ESP_LOGE(TAG, "Unsupported climate mode");
@@ -72,7 +71,7 @@ void SanyoAC::control(const climate::ClimateCall &call) {
 
   if (call.get_target_temperature().has_value()) {
     float temp = *call.get_target_temperature();
-    this->ac.setTemp(temp);
+    ac.setTemp(temp);
     this->target_temperature = temp;
   }
 
@@ -80,16 +79,16 @@ void SanyoAC::control(const climate::ClimateCall &call) {
     esphome::climate::ClimateFanMode fan_mode = *call.get_fan_mode();
     switch (fan_mode) {
       case climate::CLIMATE_FAN_AUTO:
-        this->ac.setFan(kSanyoAcFanAuto);
+        ac.setFan(kSanyoAcFanAuto);
         break;
       case climate::CLIMATE_FAN_LOW:
-        this->ac.setFan(kSanyoAcFanLow);
+        ac.setFan(kSanyoAcFanLow);
         break;
       case climate::CLIMATE_FAN_MEDIUM:
-        this->ac.setFan(kSanyoAcFanMedium);
+        ac.setFan(kSanyoAcFanMedium);
         break;
       case climate::CLIMATE_FAN_HIGH:
-        this->ac.setFan(kSanyoAcFanHigh);
+        ac.setFan(kSanyoAcFanHigh);
         break;
       default:
         ESP_LOGE(TAG, "Unsupported fan mode");
@@ -102,7 +101,7 @@ void SanyoAC::control(const climate::ClimateCall &call) {
 }
 
 void SanyoAC::transmit_state_() {
-  this->ac.send();
+  ac.send();
 }
 
 }  // namespace sanyo_ac
